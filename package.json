@@ -1,0 +1,11 @@
+{
+  "name": "edgeflix-parent",
+  "private": "true",
+  "workspaces": [
+    "./frontend",
+    "./tracker"
+  ],
+  "scripts": {
+    "start": "npm start -w tracker"
+  }
+}
