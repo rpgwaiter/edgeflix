@@ -13,18 +13,18 @@ The goal of this project is to (eventually) supplement or replace expensive infr
 ## Project goals
 
 ### tracker
-[x] - working /announce
-[ ] - working /scrape
-[ ] - optional torrent registration/allowlisting
+- [x] - working /announce
+- [ ] - working /scrape
+- [ ] - optional torrent registration/allowlisting
 
 ### frontend
-[ ] - way to view list of torrents in KV
-[ ] - search
+- [ ] - way to view list of torrents in KV
+- [ ] - search
 
 ### general
-[ ] - auth
-[ ] - logging
-[ ] - use B2 to store metadata about torrents
+- [ ] - auth
+- [ ] - logging
+- [ ] - use B2 to store metadata about torrents
 
  
 ## Getting Started
