@@ -1,5 +1,7 @@
 # edgeflix-tracker
 
+Hosted: https://tracker.based.zone
+
 Here's how all the data is stored in CF currently. This is subject to change all the time and may not be 1:1 with current code
 
 
