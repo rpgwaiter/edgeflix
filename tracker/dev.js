@@ -14,8 +14,8 @@ if (!EDGEFLIX_KV) {
   throw new error('KV is not setup properly. Be sure your Cloudflare credentials are in your env as mentioned in the readme.')
 }
 
-const mf = new Miniflare({
-  name: 'store',
+export const mf = new Miniflare({
+  name: 'edgeflix-tracker',
   sourceMap: true,
   modules: true,
   scriptPath: './dist/worker.js',
@@ -25,15 +25,13 @@ const mf = new Miniflare({
 
   bindings: { EDGEFLIX_KV },
 
-  globals: {
-    EDGEFLIX_KV
-  },
+  globals: { EDGEFLIX_KV },
 
   kvPersist: true,
   doPersist: true
 })
 
-async function main () {
+export async function main () {
   await mf.startServer()
   console.log(`Edgeflix tracker dev server is live @ http://localhost:${PORT}`)
 }
