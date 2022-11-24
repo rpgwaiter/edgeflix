@@ -14,7 +14,7 @@ if (!EDGEFLIX_KV) {
   throw new error('KV is not setup properly. Be sure your Cloudflare credentials are in your env as mentioned in the readme.')
 }
 
-export const mf = new Miniflare({
+const mf = new Miniflare({
   name: 'edgeflix-tracker',
   sourceMap: true,
   modules: true,
@@ -27,8 +27,7 @@ export const mf = new Miniflare({
 
   globals: { EDGEFLIX_KV },
 
-  kvPersist: true,
-  doPersist: true
+  kvPersist: true
 })
 
 export async function main () {

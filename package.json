@@ -3,7 +3,8 @@
   "private": "true",
   "workspaces": [
     "./frontend",
-    "./tracker"
+    "./tracker",
+    "./scanner"
   ],
   "scripts": {
     "start": "npm start -w tracker"

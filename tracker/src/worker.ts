@@ -8,6 +8,6 @@ export default {
       return announce(request, env)
     } 
       // TODO: Site name from env
-      return new Response('This is a torrent tracker. To use this service, add "https://tracker.based.zone/announce" as a tracker to your torrent of choice')
+      return new Response(`This is a torrent tracker. To use this service, add ${env.EDGEFLIX_TRACKER_URL || 'https://tracker.based.zone/announce'} as a tracker to your torrent of choice`)
   }
 }

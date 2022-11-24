@@ -9,13 +9,13 @@ import pify from 'pify'
 import parseTorrent from 'parse-torrent'
 
 // Returns a buffer containing a .torrent file
-async function makeTorrent (target) {
+export async function makeTorrent (target) {
   Debug('makeTorrent')('Making torrent:', `${target}`.green.bold)
   return pify(createTorrent)(target, { private: true, announceList: [] })
 }
 
 // Makes torrent files from all children of target
-async function makeTorrentsFromParent (target) {
+export async function makeTorrentsFromParent (target) {
   const debug = Debug('makeTorrentsFromParent')
   console.log('Making Torrent(s) from the contents of:', `${target}`.green.bold)
   const parentSize = await getTargetSize(target)

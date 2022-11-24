@@ -47,7 +47,6 @@ export default async function announce (request: Request, env) {
     peers: []
   }
 
-
   if (data.failure_reason) {
     // TODO: use 'debug'
     console.warn('Failure exit')
@@ -80,9 +79,8 @@ export default async function announce (request: Request, env) {
     port: peer.port
   }))
 
-  console.log(ret)
-
-  console.log(`Successfully registered peer: ${data.ip} for torrent: ${data.info_hash}`)
+  // TODO: Optional debug output based on env
+  // console.log(`Successfully registered peer: ${data.ip} for torrent: ${data.info_hash}`)
 
   return new Response(encode(ret), {
     headers: { 'content-type': 'application/json' }
