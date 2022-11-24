@@ -24,7 +24,7 @@ The goal of this project is to (eventually) supplement or replace expensive infr
 ### general
 - [ ] - auth
 - [ ] - logging
-- [ ] - use B2 to store metadata about torrents
+- [ ] - use R2 to store metadata about torrents
 
  
 ## Getting Started
