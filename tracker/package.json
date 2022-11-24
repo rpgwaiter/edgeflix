@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "npx -y esbuild ./src/worker.ts --bundle --outdir='dist' --platform=browser --format=esm",
-    "deploy": "wrangler --config wrangler-${CI_COMMIT_REF_NAME-$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)}.toml publish",
+    "deploy": "wrangler --config wrangler.toml publish",
     "start": "NODE_OPTIONS='--experimental-vm-modules --no-warnings' node ./dev.js",
     "test": "npx -y vitest --run --reporter verbose"
   },
