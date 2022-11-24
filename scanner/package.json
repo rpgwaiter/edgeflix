@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "colors": "^1.4.0",
-    "commander": "^9.4.0",
-    "create-torrent": "^5.0.4",
-    "cross-cf": "^0.0.9",
+    "commander": "^9.4.1",
+    "create-torrent": "^5.0.9",
+    "cross-cf": "^0.0.10",
     "debug": "^4.3.4",
     "get-folder-size": "^4.0.0",
     "parse-torrent": "^9.1.5",
-    "pify": "^6.0.0"
+    "pify": "^6.1.0"
   }
 }

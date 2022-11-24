@@ -1,0 +1,18 @@
+name: Deploy edgeflix-tracker to Cloudflare
+
+on: push
+
+
+jobs:
+  deploy-tracker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm i
+      - uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          command: --config tracker/wrangler.toml publish
