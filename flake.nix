@@ -4,7 +4,6 @@
     devshell.url = "github:numtide/devshell";
     flake-utils.url = "github:numtide/flake-utils";
     flake-compat = { url = github:edolstra/flake-compat; flake = false; };
-
   };
 
   outputs =
@@ -27,17 +26,14 @@
     # devShell = pkgs.devshell.mkShell { imports = [ (pkgs.devshell.importTOML ./devshell.toml) ]; };
     packages = flake-utils.lib.flattenTree rec {
 
-      edgeflix = pkgs.callPackage ./scanner {
-      };
+      # edgeflix = pkgs.callPackage ./scanner {
+      # };
 
     };
   }) 
   // rec {
     overlay = final: prev: {
         inherit (self.outputs.packages.x86_64-linux) 
-        rutorrent
-        # frida
-        cyberpunk-neon;
     };
   };
 }
