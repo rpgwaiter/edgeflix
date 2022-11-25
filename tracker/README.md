@@ -15,7 +15,7 @@ CLOUDFLARE_NAMESPACE_ID=****
 CLOUDFLARE_API_TOKEN=****
 
 DEFAULT_ANNOUNCE_PEERS=25 ## Default num of peers to return if unspecified by client
-PEER_TTL=1200 ## Time in seconds to keep peer in KV storage
+PEER_TTL=2400 ## Time in seconds to keep peer in KV storage
 
 MAX_ANNOUNCE_PEERS=30 ## Max amount of peers to send to a client
 LOG_TORRENTS_TO_R2=false ## Should all torrents be logged to R2 storage?
@@ -34,6 +34,9 @@ main = "./dist/worker.js"
 
 [build]
 command = "npm install && npm run build"
+
+[vars]
+LOG_TORRENTS_TO_R2 = "true"
 
 [[rules]]
 type = "ESModule"
