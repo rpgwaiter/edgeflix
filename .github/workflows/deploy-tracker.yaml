@@ -21,3 +21,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           command: --config tracker/wrangler.toml publish
+          workingDirectory: tracker/
