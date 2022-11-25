@@ -5,8 +5,5 @@
     "./web",
     "./tracker",
     "./scanner"
-  ],
-  "scripts": {
-    "start": "npm start -w tracker"
-  }
+  ]
 }

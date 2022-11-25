@@ -6,6 +6,9 @@ import svelte from '@astrojs/svelte'
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
-  adapter: cloudflare({}),
-  integrations: [svelte()]
+  server: { port: 8787 },
+  site: 'https://edgeflix.based.zone',
+  adapter: cloudflare(),
+  integrations: [svelte()],
+  
 })
