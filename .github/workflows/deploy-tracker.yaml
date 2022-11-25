@@ -20,5 +20,5 @@ jobs:
       - uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          command: --config tracker/wrangler.toml publish
+          command: --config wrangler.toml publish
           workingDirectory: tracker/
