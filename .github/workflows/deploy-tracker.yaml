@@ -14,7 +14,7 @@ jobs:
       - run: npm i
       - name: generate wrangler.toml
         id: wrangler-config-gen
-        run: echo "$WRANGLER_CONF" >> tracker/wranngler.toml
+        run: echo "$WRANGLER_CONF" >> tracker/wrangler.toml
         env:
           WRANGLER_CONF : ${{secrets.WRANGLER_CONFIG}}
       - uses: cloudflare/wrangler-action@2.0.0
