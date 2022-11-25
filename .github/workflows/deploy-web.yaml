@@ -1,10 +1,10 @@
-name: Deploy edgeflix-tracker to Cloudflare
+name: Deploy edgeflix-web to Cloudflare
 
 on: push
 
 
 jobs:
-  deploy-tracker:
+  deploy-web:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,11 +13,11 @@ jobs:
           node-version: 18
       - name: generate wrangler.toml
         id: wrangler-config-gen
-        run: echo "$WRANGLER_CONF" >> tracker/wrangler.toml
+        run: echo "$WRANGLER_CONF" >> web/wrangler.toml
         env:
-          WRANGLER_CONF : ${{secrets.WRANGLER_CONFIG}}
+          WRANGLER_CONF : ${{secrets.WRANGLER_CONFIG_WEB}}
       - uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           command: --config wrangler.toml publish
-          workingDirectory: tracker/
+          workingDirectory: web/

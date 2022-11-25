@@ -2,7 +2,7 @@
   "name": "edgeflix-parent",
   "private": "true",
   "workspaces": [
-    "./frontend",
+    "./web",
     "./tracker",
     "./scanner"
   ],
