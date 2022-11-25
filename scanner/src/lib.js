@@ -20,7 +20,7 @@ export async function getTargetSize (target) {
 }
 
 // TODO: Add user id as prefix
-export async function uploadTorrentToKV(k, v) {
+export async function uploadTorrentToKV (k, v) {
   Debug('uploadTorrentToKV')('Uploading to KV:', k.green.bold)
   return KV.put(encodeURIComponent(k), JSON.stringify(v))
 }

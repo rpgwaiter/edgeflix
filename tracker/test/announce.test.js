@@ -21,7 +21,6 @@ const EDGEFLIX_KV = NODE_ENV === 'test'
     }
   : CLOUDFLARE_API_TOKEN ? (new CrossKV('EDGEFLIX_KV', { target: 'remote', kvID: EDGEFLIX_KV_ID })) : {}
 
-
 const mf = new Miniflare({
   name: 'edgeflix-tracker-tester',
   sourceMap: true,

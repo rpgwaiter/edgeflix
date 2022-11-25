@@ -9,6 +9,6 @@ export default defineConfig({
   server: { port: 8787 },
   site: 'https://edgeflix.based.zone',
   adapter: cloudflare(),
-  integrations: [svelte()],
-  
+  integrations: [svelte()]
+
 })

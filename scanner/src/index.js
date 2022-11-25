@@ -36,7 +36,6 @@ export async function makeTorrentsFromParent (target) {
   })
 }
 
-
 program
   .name('edgeflix scanner')
   .description('CLI to add content to edgeflix instance')
