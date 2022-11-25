@@ -2,6 +2,7 @@
   "name": "edgeflix-tracker",
   "private": true,
   "type": "module",
+  "version": "0.2.0",
   "scripts": {
     "build": "npx -y esbuild ./src/worker.ts --bundle --outdir='dist' --platform=browser --format=esm",
     "deploy": "wrangler --config wrangler.toml publish",
@@ -17,8 +18,5 @@
     "vitest": "^0.25.3",
     "webtorrent": "^1.9.4",
     "wrangler": "^2.1.13"
-  },
-  "dependencies": {
-    "bencode": "^2.0.3"
   }
 }
