@@ -6,8 +6,9 @@ export default async function announce(request: Request, env) {
 
 
   const DEFAULT_ANNOUNCE_PEERS = env.DEFAULT_ANNOUNCE_PEERS || 25 // Default peers if unspecified by client
-  const PEER_TTL = env.PEER_TTL || 20 * 60 // Time in seconds to keep peer in KV
-  const MAX_ANNOUNCE_PEERS = env.MAX_ANNOUNCE_PEERS || 82 // Max amount of peers to send to a client
+  const PEER_TTL = env.PEER_TTL || 40 * 60 // Time in seconds to keep peer in KV
+  const MAX_ANNOUNCE_PEERS = env.MAX_ANNOUNCE_PEERS || 30 // Max amount of peers to send to a client
+  const LOG_TORRENTS_TO_R2 = env.LOG_TORRENTS_TO_R2 || false // Should all torrents be logged to R2 storage
 
   const params = url.searchParams
   const headers = request.headers
@@ -59,11 +60,13 @@ export default async function announce(request: Request, env) {
   delete data.failure_reason
 
   // Ensure torrent info is saved in R2
-  const _torrent_r2 = await env.TORRENTS_BUCKET?.list({ prefix: `torrents:${data['info_hash']}` })
-    .then(r => Array.isArray(r.keys) && r.keys.length === 1 // TODO: Fix dupes instead of assuming there's only 1
-      ? env.TORRENTS_BUCKET.get(r.keys[0]?.name)
-      : env.TORRENTS_BUCKET.put(`torrents:${data['info_hash']}`, null)
-    )
+  if (LOG_TORRENTS_TO_R2) {
+    await env.TORRENTS_BUCKET?.list({ prefix: `torrents:${data['info_hash']}` })
+      .then(r => Array.isArray(r.keys) && r.keys.length >= 1 // TODO: Fix dupes instead of assuming there's only 1
+        ? {} // env.TORRENTS_BUCKET.get(r.keys[0]?.name)
+        : env.TORRENTS_BUCKET.put(`torrents:${data['info_hash']}`, null)
+      )
+  }
 
   // Ensure peer info is saved in KV
   await env.EDGEFLIX_KV.put(
