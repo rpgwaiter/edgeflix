@@ -16,7 +16,7 @@ jobs:
         run: npm i && npm run build
       - uses: cloudflare/wrangler-action@2.0.0
         env:
-          CLOUDFLARE_ACCOUNT_TOKEN: ${{secrets.WRANGLER_CONFIG_WEB}}
+          CLOUDFLARE_ACCOUNT_ID: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           command: pages publish ./dist --project-name=edgeflix-web
