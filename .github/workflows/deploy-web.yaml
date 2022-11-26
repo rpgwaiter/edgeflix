@@ -16,8 +16,11 @@ jobs:
         run: echo "$WRANGLER_CONF" >> web/wrangler.toml
         env:
           WRANGLER_CONF : ${{secrets.WRANGLER_CONFIG_WEB}}
+      - name: build the site
+        working-directory: web/
+        run: npm i && npm run build
       - uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          command: --config wrangler.toml publish
+          command: pages publish ./dist --project-name=edgeflix-web
           workingDirectory: web/

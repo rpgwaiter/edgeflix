@@ -1,12 +1,12 @@
 ---
-export interface Props {
-	torrentFile: string
-	torrentName: string
-}
+  export interface Props {
+    torrentFile: string
+    torrentName: string
+  }
 
-const { torrentFile, torrentName } = Astro.props
+  const { torrentFile, torrentName } = Astro.props
 ---
 
 <div>
-  <a href={`data:text/plain;charset=utf-8,${encodeURIComponent(torrentFile)}`} download={`${torrentName}.torrent`}>{torrentName}</a>
+  <a href={`data:text/plain;charset=utf-8,${encodeURIComponent(torrentFile)}`} download={`${torrentName}.torrent`}> {torrentName} </a>
 </div>
