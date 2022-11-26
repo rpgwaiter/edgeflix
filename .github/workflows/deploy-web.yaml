@@ -11,15 +11,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: generate wrangler.toml
-        id: wrangler-config-gen
-        run: echo "$WRANGLER_CONF" >> web/wrangler.toml
-        env:
-          WRANGLER_CONF : ${{secrets.WRANGLER_CONFIG_WEB}}
       - name: build the site
         working-directory: web/
         run: npm i && npm run build
       - uses: cloudflare/wrangler-action@2.0.0
+        env:
+          CLOUDFLARE_ACCOUNT_TOKEN: ${{secrets.WRANGLER_CONFIG_WEB}}
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           command: pages publish ./dist --project-name=edgeflix-web
